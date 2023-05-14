@@ -1,0 +1,27 @@
+JSX is not HTML Inside JSX
+JSX was created to make writing react elements easier and developer friendly
+JSX is an HTML Like syntax or XML like syntax
+The jsx code is transpiled before it reaches the javascript engine. This transpilation is done by parcel through a package called babel
+Behind the scenes, jsx code is converted to react.createElement, which later converts to JS object and then rendered to DOM as html element 
+Attributes are written in camelcase eg className
+Single line jsx can be written directly eg: const heading = <h1> heading </h1> but multiline JSX needs to be 
+wrapped in paranthesis  () 
+JSX can only have single root element
+
+
+React Components: 
+Ways to create component 
+1) Class based Components (Old way)
+2) Functional components  (New way) - Normal JS Function which returns some JSX element (or a ReactElement (same thing))
+eg: const HeadingComponent = () => {
+  return <h1>Namaste react functional component</h1>
+}
+To render a react component : 
+root.render(<HeadingComponent />);
+
+React Fragments: 
+To put multiple root elements without rendering a parent element in JSX we can wrap it inside <React.Fragment>  </React.Fragment>
+(similar to vue template)
+behaves like an empty tag.
+We can also use empty tag instead of this <> </>
+

@@ -1,0 +1,42 @@
+Always do planning before starting to code 
+
+Header
+- Logo
+- Nav items
+Body
+- Search 
+- Restaurant Container
+  - Restaurant Cards 
+    -Img
+    -Name of Restaurant
+    -Star rating 
+    -Cuisines
+    -Delivery Time
+Footer
+- Copyright
+- Links 
+- Address 
+- Contact
+
+
+PROPS: (Properties)
+Something that we can pass to the component
+Whenever we need to pass dynamic data to a component we use prop
+Similar like passing arguments to a function
+eg:
+<RestaurantCard resName = "Meghana Foods" cuisine="Biryani">
+React will take all these props and wrap it in an object and pass it to RestaurantCard
+const RestaurantCard = (props) => { props.resName, props.cuisine }
+
+Generally, we get restaurant data in form of json
+
+Config driven UI: (Swiggy website) - UI is driven by a config. UI can show different data or cards etc for different cities
+We can control our UI based on data coming from backend
+
+
+WHY WE NEED TO USE A KEY WHILE LOOPING IN REACT:
+React optimises its render cycles when there are components at the same level. These components need to have
+unique id because suppose a new restaurant came in and it came in at the first place and there was no ID, react would have to
+re render all the restaurant cards because it does not know that which restaurant card is the latest one added
+If we give them a unique id, react exactly knows and will only render one restaurant
+Never use indexes as keys

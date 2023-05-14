@@ -1,0 +1,43 @@
+Creating your own create react app (Production ready app)
+
+package.json is a configuration for npm
+
+most imp package: Bundler
+What is a bundler?
+Our whole code needs to be bundled, cleaned, minified, compressed to be sent to prod
+This role is performed by bundler
+We will use parcel as bundler
+It creates
+-Dev build
+-Local server
+-Hot module replacements (It uses file watching algorithm which is written in c++)
+-Faster builds(through caching)
+-Image optimisation
+-Minification
+-Bundle
+-Compress 
+-Consistent hashing
+-Code splitting
+-Differential Bundling (support old browser)
+-Diagnostic
+-Error handling
+-HTTPs
+-Tree shaking (Remove unused code)
+to create prod build = npx parcel build index.html
+
+Types of dependencies:
+1) Dev: Required in development phase
+2) Normal: Used in production
+
+NPX : Executing a package  eg: npx parcel index.html
+it searches for the package in the local and global registry, and then it runs the package. 
+If the package is not already installed, NPX downloads the package files and installs the package, 
+but it will only cache the files instead of saving it.
+
+
+When we remove script loading for react from index.html and add package for react. Then we import that package in app.js
+we will get an error Browser scripts cannot have imports or exports.
+Because It considers the js file as a normal js file and not a module
+so we need to add type = module
+
+Browserslist: NPM package 
