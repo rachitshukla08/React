@@ -1,0 +1,48 @@
+FINDING THE PATH
+
+use of useEffect hook
+useEffect is a hook which is called after the component is rendered
+without a dependency array, it will be called after every render
+We can use more than one useEffects also
+
+REQUIRED Practices
+1) Never create a omponent inside thr funcyion of another component
+2) Never write the useState hook inside if else or a for loop
+3) Never use useState outside of functional component
+
+Formik library (For building forms)
+
+------------------------------------------------------------------------
+
+Single Page Application:
+Our application does not reload 
+There are 2 types of routing: 
+1) Client Side Routing  : Routing is done from client side, no network call to fetch another page is reqd.
+2) Server Side Routing: Whenever the route changes, the new page will come from the server
+
+
+
+
+React Router: (React Router v6)
+1) Create router configuration 
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<RouterProvider router={appRouter} />);
+
+All the children will go into the outlet
+
+Dynamic Routing
+

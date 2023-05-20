@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 1rem 1rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  align-items: center;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.nav-items > ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-size: 24px;
+}
+
+.body {
+  margin: 0 1rem;
+}
+
+.res-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.res-card {
+  width: 200px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 100ms;
+}
+
+.res-card:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.search {
+  padding: 10px;
+}
+
+.res-img {
+  width: 100%;
+}
+.card-text {
+  margin: 1rem 0;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 2rem 0;
+}

@@ -1,0 +1,59 @@
+Lets get hooked 
+
+Organising the project into multiple folders 
+Folder structure: 
+-src 
+some people like to name their files in components as jsx files and some people like to name as js 
+What is a good way? (Can use any)
+
+
+Suppose i want to filter restaurants on click of the filter button, onClick I add a function to change the
+resList array. But even when the array is modified the DOM is not updated. If we log it on console it will show filtered
+array but DOM remains the same. How do I update the DOM when list of restaurants changes
+Superpower of react: React is fast in DOM manipulation.
+When we want to keep data and UI Layer consistent with each other, that is where react comes in the picture
+This is the exact problem that react is trying to solve
+Currently the list of restaurants is a normal let variable. I want to create a super powerful react variable 
+known as state variable
+For that, we use a react hook called useState
+
+
+React Hooks 
+A hook is just a normal JS function that is given by react. this function comes with super powers of react
+These are just normal JS utility functions
+2 important react hooks:
+- useState : Used to generate super powerful state variables in react. Can be imported from react as named import
+  It maintains the local state of the component. Its scope is inside the component
+  const [listofRestaurant] = useState();
+  whatever we pass inside useState is the default value of the state variable
+
+  How do we modify this variable? 
+  Using a funtion that comes as a second parameter to the useState function
+
+  Whenever a state variable updates, react re renders the component
+- useEffect
+
+*SUPERPOWERS OF REACT: 
+
+React uses Reconciliation algorithm (also knows as React Fiber) (Came in React 16)
+    o (res container)
+ / /|\ \  \ \
+ o o o o o o o
+ suppose there are above restaurant cards and my UI changes to filter it to 3 cards 
+
+When we have a UI, react creates a virtual DOM of it
+Virtual DOM is representation of Actual DOM 
+Virtual DOM are basically those reactElements which are represented in javascript object form
+
+Diff algorithm: 
+Finds out the difference between 2 virtual DOMS (updated virtual DOM and previous virtual DOM)
+  o (res container)  |     o 
+ / /|\ \  \ \        |    /|\
+ o o o o o o o       |   o o o 
+ Diff algo will calculate the difference of these 4 nodes and then will actually update the DOM on every render cycle
+
+Finding out the difference between 2 JS objects is fast 
+
+
+REACT USES ONE WAY DATA BINDING: 
+Thats why we cannot type in input fields made using react 

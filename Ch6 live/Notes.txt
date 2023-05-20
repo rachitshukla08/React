@@ -1,0 +1,74 @@
+CH6 EXPLORING THE WORLD
+
+Whenever we change a state variable, react refreshes the component. 
+So even though it will only repaint the node which is changed but still it will call the functions written in 
+the component every time state is changed 
+
+Header =  () => {
+  ...
+  console.log("hi");
+  setTitle("5");
+}
+
+hi will be printed again after setting title to 5
+
+Same thing will happen whenever we type anything in an input field. Each letter will cause the component to rerender
+
+MICROSERVICES : 
+When we build a big app, in older days there was a single big application. There used to be only one project
+Now suppose we have to change just one button, we had to deploy the whole application. Everything was kept in a single
+repo.
+This was known as MONOLITH ARCHITECTURE
+
+Now  we have small small different projects 
+Each microservice has its own work to do without worrying about other microservices
+This is called microservice architecture 4
+
+*FETCH:  Uses streams to recieve data 
+  Streams are great, as you can start acting on the data as it arrives. 
+  For instance, if you're receiving a list of 100 'results', you can display the first result as soon as you 
+  receive it, rather than waiting for all 100.
+
+  fetch("") : Calls an API 
+  where do I call my API?
+
+  Suppose I call it in Body component, body component will rerender on every keypress and then it will again call the 
+  API as the code will rerun on rerender. 
+
+  As and when the page loads, I Want to call the API and fetch the data. 
+  There can be 2 ways to call the API
+  1) User loads the website => Make an API call => Render page
+                                (300ms)      +       (200ms)    = (500ms)
+
+  2) User loads the page => Render the initial page, show the user something and then call the API and update UI 
+                                (200ms)                       +                           (300ms)    =      (500ms)
+
+  In react we generally follow the 2nd approach
+  To give us this funtionality, React gives us access to 2nd most imp hook: useEffect()
+
+  useEffect will take a callback function and will call the callback function whenever it needs to call it
+  It will be called on every rerender but we don't want to call it on every rerender. For that we can pass a 
+  dependency array to it
+
+  useEffect(()=>{}, [])
+
+  suppose I want to call it whenever my searchText changes.
+  useEffect(()=>{}, [searchText]); = useEffect is dependent on the searchText
+
+  If useEffect is not depedent on anything, it will be called just once
+  useEffect(()=>{
+    fetch(url);
+  }, [])
+  When will it be called? Before render or after render?
+  It will be called after render, useEffect is a callback function, it will be called just once and after render
+
+  Empty dependency array => Once after render 
+  Dependency array => Once after initial render + every time after rerender when the dependency changes
+
+
+CONDITIONAL RENDERING: 
+
+if(restaurant is empty) => Load shimmer UI 
+if(restaurant is not empty) => Load actual data UI
+
+before return, we can write some conditions 
