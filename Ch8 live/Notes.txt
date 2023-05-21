@@ -1,0 +1,86 @@
+Lets get classy
+
+Class based components: 
+Is a javascript class 
+Cannot create a class based component without render method
+This render method returns jsx
+
+Order of calling methods in class based components
+1) Constructor called 
+2) Render called 
+3) ComponentDidMount called after initial render
+
+Order of calling in case of Parent child components : 
+1) Parent Constructor
+2) Render 
+3) Child Constructor called (As parent encounters Child in parent render method)
+4) Child render 
+5) Child ComponentDidMount 
+6) Parent ComponentDidMount 
+
+Suppose there are 2 child components:
+
+Parent = {
+  render (
+    return (
+      <Child 1>
+      <Child 2>
+    )
+  )
+}
+
+Order of execution: 
+1) Parent Constructor
+2) Parent Render 
+3) Child 1 Constructor 
+4) Child 1 render 
+5) Child 2 Constructor : 
+6) Child 2 render  
+7) Child 1 componentDidMount 
+8) Child 2 componentDidMount 
+9) Parent componentDidMount
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+1) Render Phase - Constructor + Render method 
+2) Commit Phase - Where react modifies the DOM + componentDidMount
+React first finishes the render phase 
+
+When there are 2 children, react batches the render phase for the 2 children. 
+
+There are 2 phases in reconciliation: 1) Render 2) COmmit 
+In render phase, constructor and render is called 
+In commit phase, react actually modifies the DOM then it calls componentDidMount
+Render phase is fast and commit phase is slow
+
+Now suppose there is a child component and there we call in an API in async componentDidMount 
+and are setting a state using the data
+So it will call the 
+-Constructor 
+-Render 
+
+-componentDidMount  = Called after first render 
+-API (inside componentDidMount)
+-SetState (inside componentDidMount )
+-Render (Called again because state changed)
+
+-componentDidUpdate = Called after every next render 
+
+-componentWillUnmount = Called before unmount (Used to cleanup eg: setInterval)
+
+Note: If we intitiate a timer similarly in useEffect, to destroy the timer before unmounting, we can return a 
+function from useEffect. It will be called before unmounting the component 
+
+useEffect(()=>{
+  const timer = setInterval(()=>{console.log("Timer ticking")},1000);
+
+  return ()=>{clearInterval(timer);}
+}, [])
+
+This is so easily solved in functional components using useEffect and dependency array (Lifecycle methods functionality)
+
+In class based components there are lifecycle methods
+
+
+We can call APIs in componentDidMount as we can first render initial component and then call API
+
+NOTE: NEVER COMPARE REACT LIFECYCLE METHODS TO FUNCTIONAL COMPONENTS 
