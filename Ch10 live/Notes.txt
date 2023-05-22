@@ -1,0 +1,25 @@
+Ch 9 
+Jo dikhta hai wo bikta hai
+
+Various Ways to write css in react projects: 
+1) basic way like we used till now
+2) Use scss 
+3) Inline css 
+4) Styled components
+5) Frameworks like tailwind, material ui
+
+Suppose a class is not available in tailwind 
+eg width 200px 
+there is square bracket notation to give dynamic value
+class = "w-[200px]"
+
+Pros of tailwind: 
+Easy to use
+no duplicate css 
+bundle size small 
+faster development 
+Easy to debug
+
+Cons: 
+Many classes to use for single component
+Initial learning curve
