@@ -1,0 +1,35 @@
+Ch 9 
+Optimizing our app 
+LazyLoading, Code splitting, Creating custom hook 
+
+Custom hooks: 
+When, how, why? 
+
+Why: Reusability, Readability, Separation of concern (Maintainability)
+
+*Our restaurant menu component is doing 2 things: 
+  Fetching data, Displaying data for a restaurant 
+  Can we extract some logic out of this component? 
+  Yes, we can extract API call out of this component
+  So we can create a hook that fetches the restaurant details
+  convention to name: use(Name)
+
+
+note: whenever you add an event listener, remove the previous event listener
+
+One Problem
+Whenever we are building any application, parcel will bundle the whole app into 1 big js file
+Suppose we are making a huge application with thousands of components so when parcel bundles it, it will be 
+very slow while running. Therefore we should not build only one bundle
+We should do chunking (also called code splitting/dynamic bundling/lazy loading/on demand loading)
+We have to make logical bundles of our app 
+
+Just few lines of code can optimise our app to production level 
+Suppose if i go to make my trip and want to book a flight, it is rare that I open up the train or bus section 
+So if we created whole bundle we would load all the components train flight bus etc and load into the browser
+In large apps, we build chunks based on the use cases
+WHen I click on the train section only then it should load train bundle 
+
+In ondemand loading, on render, react will suspend loading because the code is not there, It will give
+error initially and reroute to errorElement
+To handle this we use Suspense
