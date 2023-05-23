@@ -1,4 +1,4 @@
-Ch 9 
+Ch 10 
 Jo dikhta hai wo bikta hai
 
 Various Ways to write css in react projects: 

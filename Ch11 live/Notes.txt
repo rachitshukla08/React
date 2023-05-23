@@ -1,0 +1,10 @@
+Ch 10
+
+Prop drilling: 
+Passing props from one parent to a child and to another (like a chain) P-> C-> C->C ....
+Disadvantage: 
+1) In case of lot of components, we have to make change in every component to pass it to child (Unnecessary code)
+2) It rerenders every component in the chain 
+
+React Context: 
+Used to create global state (Central place to store data)
