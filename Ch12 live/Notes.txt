@@ -1,0 +1,54 @@
+Ch12
+Lets build our store
+
+We used context to avoid prop drilling
+
+To manage our data properly we can create a redux store 
+
+Why do we use redux? 
+  For data management 
+  In small applications using context is okay but in large applications redux gives better way of managing data 
+
+  Cons of redux: 
+  Complex to set up
+  Huge learning curve 
+
+  As it was very comlex to learn and use so redux came up with redux toolkit 
+  It is a new way of doing redux 
+
+Redux v/s redux toolkit: 
+  Concerns about redux:
+    - Configuring a redux store is too complicated 
+    - I have to add a lot of packages to use redux 
+    - Redux requires too much boilerplate code 
+  Redux is a complex old way, so from now on use redux toolkit 
+
+At the end of the day redux store is like a big object 
+We only have a single redux store in our application
+In there, we will create different slices of our store 
+
+Writing to our store: 
+  Our components cannot directly modify the store 
+  We have to 'dispatch' an 'action': eg addItem =>  it will call a function and this funct will modify our cart 
+  This function is known as 'reducer' (the function called by addItem)
+
+  If I click on the plus button it will dispatch an action which calls a reducer function which updates the slice of 
+  our store 
+
+Reading from our store: 
+  Using 'selector'
+  'Selector' is a hook at the end of the day 
+
+'Subscribe':
+  Eg: Cart component is subscribed to the store
+  It means cart component is linked to the store and reading data from the store. It is in sync with the store 
+  Whenever the store modifies, cart will automatically modify 
+  It subscribes by using a selector 
+
+We need 2 libraries:  
+  @reduxjs/toolkit: Core of redux 
+  react-redux: Bridge between react and redux 
+
+
+
+
