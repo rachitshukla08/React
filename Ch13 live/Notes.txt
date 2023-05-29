@@ -1,0 +1,62 @@
+Ch13
+Time for the test   
+
+React testing library 
+It is a part of @testing-library that offers testing for react, angualar, vue, etc
+It uses JEST behind the scenes
+
+JEST: 
+Javascript testing framework 
+
+
+Types of testing: 
+  - Manual testing 
+  - Automation testing
+    - Selenium testing
+
+  - E2E testing
+  - Unit testing 
+  - Integration testing: Testing the integration between components
+  - Regression testing
+  - Smoke test 
+  - Performance test 
+  - Penetration testing 
+
+
+
+keywords:
+  headless browsers: Like an actual browser but does not show anything
+
+
+Setup:
+  - npm install --save-dev @testing-library/react
+  - npm i -D jest
+  - Run npx jest --init (Choose jsdom, babel)
+  - configure jest using jest.config file generated 
+  - npm i -D jest-environment-jsdom
+  - Create __tests__ folder and a test file 
+  - We cannot use import in test files because it is not a module but a js file 
+    so we need to configure babel to make it understand imports 
+  - npm install --save-dev babel-jest @babel/core @babel/preset-env
+  - Create a babel.config.js file or .babelrc file 
+      {
+        "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+      }
+  - Now run your test cases 
+  - When we try to run the test case for react we will get error: (Support for the experimental syntax 'jsx' isn't currently enabled)
+  - Now we need to enable jsx compatibility using babel 
+    we need to add: npm i -D @babel/preset-react, then in babelrc:  ["@babel/preset-react",{ "runtime": "automatic" }]
+  - Now we get an error for img so add the moduleNameMapper
+  - Now after fixing again we get an error:
+    could not find react-redux context value; please ensure the component is wrapped in a <Provider>   
+    Now we need to add a provider and a store to it.
+  - Again we get an error: The above error occurred in the <Link> component
+    Our component doesnt understand Link. we need to import StaticRouter. this can work without browser
+  - Now suppose we are writing test cases for body
+      We get error: fetch is not defined. we need to mock our api. using global.fetch
+We are not running the test on browser but on jsdom which uses a render function from @testing-library/react
+
+Whenever jest does not understand something, eg: we are importing an img so we can mock that img (dummyLogo.png),
+In the jest config then we can add in moduleNameMapper. We will tell jest that whenever you see a png img just replace
+it with the dummy img that we created
+
