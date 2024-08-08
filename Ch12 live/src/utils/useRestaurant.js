@@ -15,7 +15,6 @@ const useRestaurant = (resId) => {
   // @args searchObject, propertyName needed to be searched inside the object
   // @returns null
   // Sets the value variable to the value corresponding to the given key from the nested object
-  // Written by me ;) without google :) 20/05/2023
   let found = false;
   let value = null;
   const findProperty = (searchObject, property) => {
